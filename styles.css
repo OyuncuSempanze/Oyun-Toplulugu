@@ -117,7 +117,7 @@ h1 span { color: #3b5998; }
 .search-box input::placeholder, .text-field::placeholder { color: #78899c; }
 .select-wrap { position: relative; flex: 0 0 170px; }
 .select-wrap select { width: 100%; padding: 7px 25px 7px 9px; font-size: 11px; }
-.select-wrap::after { position: absolute; top: 6px; right: 9px; color: #526b8b; content: "▼"; font-size: 8px; pointer-events: none; }
+.select-wrap::after { content: none; }
 .source-filter { display: flex; width: fit-content; max-width: 100%; align-items: center; gap: 7px; margin-top: 9px; color: #52657b; font-size: 11px; cursor: pointer; }
 .source-filter input { width: 14px; height: 14px; margin: 0; accent-color: var(--blue); flex: 0 0 auto; }
 .filter-row { display: flex; flex-wrap: wrap; gap: 5px; padding: 12px 0 13px; }
