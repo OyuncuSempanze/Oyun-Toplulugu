@@ -19,6 +19,7 @@ export const mockStore = {
       summary: input.body.trim().replace(/\s+/g, " ").slice(0, 260),
       body: input.body.trim(),
       source: input.source.trim(),
+      sourceKind: input.sourceKind || "",
       author: "Senin taslağın",
       experienced: false,
       createdAt: new Date().toISOString().slice(0, 10),
