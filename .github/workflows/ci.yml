@@ -3,8 +3,22 @@ name: Basic checks
 on:
   push:
     branches: [main]
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "src/**"
+      - "tests/**"
+      - "package.json"
+      - ".github/workflows/ci.yml"
   pull_request:
     branches: [main]
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "src/**"
+      - "tests/**"
+      - "package.json"
+      - ".github/workflows/ci.yml"
 
 permissions:
   contents: read

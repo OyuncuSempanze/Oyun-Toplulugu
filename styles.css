@@ -79,6 +79,9 @@ h1 span { color: var(--accent); }
 .section-subtitle { margin: 0; color: var(--muted); font-size: 12px; }
 .result-count { color: var(--faint); font-size: 11px; padding-bottom: 4px; }
 .toolbar { display: flex; gap: 10px; }
+.source-filter { display: flex; width: fit-content; max-width: 100%; align-items: center; gap: 8px; margin-top: 10px; color: var(--muted); font-size: 11px; cursor: pointer; }
+.source-filter input { width: 15px; height: 15px; margin: 0; accent-color: var(--accent); flex: 0 0 auto; }
+.source-filter:focus-within { color: var(--text); }
 .search-box { min-width: 0; flex: 1; position: relative; display: flex; align-items: center; }
 .search-icon { position: absolute; left: 14px; color: var(--muted); font-size: 24px; top: 4px; }
 .search-box input, .select-wrap select { appearance: none; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 9px; min-height: 45px; }

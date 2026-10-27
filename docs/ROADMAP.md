@@ -4,7 +4,8 @@
 
 - [x] Mobil uyumlu ana ekran
 - [x] Örnek rehber kartları
-- [x] Arama ve oyun filtresi
+- [x] Arama, oyun filtresi ve kaynak bağlantısı filtresi
+- [x] Rehber gövdesi ve kaynak bağlantısı içinde arama
 - [x] Oturum içi oy verme
 - [x] Rehber taslağı ve yorum arayüzü
 - [x] İnceleme ve deneyimli katkıcı işaretleri için ayrı açıklamalar

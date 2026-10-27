@@ -5,6 +5,7 @@ const state = {
   game: "all",
   search: "",
   sort: "recent",
+  sourceOnly: false,
   votes: new Map(),
   activeGuideId: null
 };
@@ -49,9 +50,10 @@ function visibleGuides() {
   let filtered = state.guides.filter((guide) => {
     const gameMatches = state.game === "all" || guide.game === state.game;
     const needle = state.search.toLocaleLowerCase("tr-TR");
-    const searchMatches = !needle || [guide.title, guide.game, guide.summary, guide.author, guide.type]
+    const searchMatches = !needle || [guide.title, guide.game, guide.summary, guide.body, guide.source, guide.author, guide.type]
       .some((text) => String(text || "").toLocaleLowerCase("tr-TR").includes(needle));
-    return gameMatches && searchMatches;
+    const sourceMatches = !state.sourceOnly || Boolean(String(guide.source || "").trim());
+    return gameMatches && searchMatches && sourceMatches;
   });
   if (state.sort === "helpful") filtered.sort((a, b) => effectiveVotes(b) - effectiveVotes(a));
   if (state.sort === "discussed") filtered.sort((a, b) => (b.comments?.length || 0) - (a.comments?.length || 0));
@@ -92,6 +94,7 @@ function render() {
   empty.hidden = visible.length !== 0;
   list.hidden = visible.length === 0;
   resultCount.textContent = `${visible.length} rehber gösteriliyor`;
+  $("#source-only").checked = state.sourceOnly;
   $("#all-count").textContent = String(state.guides.length);
   $$(".filter-chip[data-game]").forEach((button) => {
     button.classList.toggle("active", button.dataset.game === state.game);
@@ -197,6 +200,11 @@ $("#sort-select").addEventListener("change", (event) => {
   render();
 });
 
+$("#source-only").addEventListener("change", (event) => {
+  state.sourceOnly = event.target.checked;
+  render();
+});
+
 $("#filter-row").addEventListener("click", (event) => {
   const button = event.target.closest("button[data-game]");
   if (!button) return;
@@ -241,6 +249,7 @@ $("#clear-filters").addEventListener("click", () => {
   state.game = "all";
   state.search = "";
   state.sort = "recent";
+  state.sourceOnly = false;
   $("#search-input").value = "";
   $("#sort-select").value = "recent";
   render();

@@ -7,7 +7,8 @@ Bu depo, **Oyun-Rehberi'nin yerine geçmez**. Oyun-Rehberi kaynaklı ve düzenli
 ## Şu an neler çalışıyor?
 
 - Mobil uyumlu rehber listesi
-- Örnek içerikler üzerinde arama, oyun filtresi ve sıralama
+- Başlık, özet, içerik gövdesi ve kaynak bağlantısında arama
+- Oyun filtresi, kaynak bağlantısı olan rehberleri gösterme ve sıralama
 - Rehber ayrıntısı ve örnek yorumları görüntüleme
 - Geçerli oturumda artı ve eksi oy kullanma
 - İnceleme bekleyen yeni rehber taslağı ekleme
