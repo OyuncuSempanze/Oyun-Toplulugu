@@ -1,0 +1,11 @@
+{
+  "name": "oyun-toplulugu",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Oyun rehberleri ve topluluk katkıları için taşınabilir ön yüz prototipi",
+  "scripts": {
+    "check": "node --check src/js/sample-data.js && node --check src/js/mock-store.js && node --check src/js/app.js",
+    "test": "npm run check && node --test"
+  }
+}
