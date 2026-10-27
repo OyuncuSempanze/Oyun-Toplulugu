@@ -13,50 +13,39 @@
   <div class="site-shell">
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Oyun Alanı ana sayfa">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-        <span class="brand-copy"><strong>🙂 oyun alanı</strong><small>oyuncuların bilgi paylaşım yeri</small></span>
+        <span class="brand-copy"><strong> oyun alanı</strong><small>oyuncuların bilgi paylaşım yeri</small></span>
       </a>
       <nav class="top-nav" aria-label="Ana menü">
-        <a class="nav-link active" href="#rehberler">🎮 Rehberler</a>
-        <a class="nav-link" href="#nasil-calisir">💬 Nasıl çalışır?</a>
+        <a class="nav-link active" href="#rehberler">Rehberler</a>
+        <a class="nav-link" href="#nasil-calisir">Nasıl çalışır?</a>
       </nav>
-      <button class="button button-primary top-submit" id="open-submit-top" type="button">🙂 Rehber gönder</button>
+      <button class="button button-primary top-submit" id="open-submit-top" type="button">Rehber gönder</button>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> 🙂 TOPLULUK PROTOTİPİ</p>
-          <h1>Oyuncular bilir. 🙂<br><span>Birlikte daha iyi öğreniriz.</span></h1>
-          <p class="hero-intro">Oyunlarda öğrendiklerini paylaş, başkalarının deneyimlerinden yararlan ve işe yarayan rehberleri birlikte öne çıkar.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#rehberler">Rehberleri keşfet <span aria-hidden="true">↘</span></a>
-            <button class="button button-quiet" id="open-submit-hero" type="button">Katkı yap <span aria-hidden="true">＋</span></button>
-          </div>
-        </div>
-        <div class="hero-panel" aria-label="Topluluk yaklaşımı">
-          <div class="panel-head"><span class="panel-index">01 / YAKLAŞIM</span><span class="panel-signal">● ÇALIŞMA TASLAĞI</span></div>
-          <div class="panel-rule"></div>
-          <div class="principle"><span class="principle-number">A</span><div><strong>Kaynağı göster</strong><p>Bilginin nereden geldiği mümkün olduğunca açık olsun.</p></div></div>
-          <div class="principle"><span class="principle-number">B</span><div><strong>İnceleme ile görüşü ayır</strong><p>Onay işareti, deneyimli katkıcı işaretinden farklıdır.</p></div></div>
-          <div class="principle"><span class="principle-number">C</span><div><strong>Kararı görünür kıl</strong><p>İçerik değerlendirmesi insan denetiminde yürüsün.</p></div></div>
-          <div class="panel-foot"><span>ÖNCE ŞEFFAFLIK</span><span>SONRA OTOMASYON</span></div>
+        <p class="eyebrow">TOPLULUK PROTOTİPİ</p>
+        <h1>Oyuncular bilir. Birlikte daha iyi öğreniriz.</h1>
+        <p class="hero-intro">Oyun rehberlerini keşfet veya kendi deneyimini paylaş.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#rehberler">Rehberleri gör</a>
+          <button class="button button-quiet" id="open-submit-hero" type="button">Rehber gönder</button>
         </div>
       </section>
 
       <section class="prototype-note" role="note">
-        <span class="note-icon" aria-hidden="true">i</span>
-        <p><strong>Bu sürüm deneme amaçlıdır.</strong> Rehberler örnek veridir. Gönderiler ve oylar yalnızca bu sayfa açıkken bellekte tutulur. Gerçek hesap, kalıcı veritabanı ve herkese açık gönderim henüz bağlı değil.</p>
+        
+        <p><strong>Prototip.</strong> Gönderiler, yorumlar ve oylar bu oturumda tutulur. Kalıcı kayıt henüz yok.</p>
       </section>
 
       <section class="content-section" id="rehberler">
         <div class="section-heading">
-          <div><p class="eyebrow">TOPLULUK KÜTÜPHANESİ</p><h2>📚 Rehberler</h2><p class="section-subtitle">Deneyimlerden öğren. Kaynağı kontrol et. Kendi katkını ekle.</p></div>
+          <div><p class="eyebrow">TOPLULUK KÜTÜPHANESİ</p><h2>Rehberler</h2></div>
           <div class="result-count" id="result-count">Örnek içerikler yükleniyor…</div>
         </div>
 
         <div class="toolbar">
-          <label class="search-box"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">Rehberlerde ara</span><input id="search-input" type="search" placeholder="Oyun, rehber veya konu ara" autocomplete="off"></label>
+          <label class="search-box"><span class="sr-only">Rehberlerde ara</span><input id="search-input" type="search" placeholder="Oyun veya konu ara" autocomplete="off"></label>
           <label class="select-wrap"><span class="sr-only">Sıralama</span><select id="sort-select"><option value="recent">En yeni</option><option value="helpful">En faydalı</option><option value="discussed">En çok yorumlanan</option></select></label>
         </div>
         <label class="source-filter" for="source-only">
@@ -72,39 +61,39 @@
         </div>
 
         <div class="guide-list" id="guide-list" aria-live="polite"></div>
-        <div class="empty-state" id="empty-state" hidden><span class="empty-mark">⌕</span><h3>Sonuç bulunamadı</h3><p>Arama terimini veya oyun filtresini değiştirmeyi dene.</p><button class="button button-secondary" id="clear-filters" type="button">Filtreleri temizle</button></div>
+        <div class="empty-state" id="empty-state" hidden><h3>Sonuç bulunamadı</h3><p>Arama terimini veya oyun filtresini değiştirmeyi dene.</p><button class="button button-secondary" id="clear-filters" type="button">Filtreleri temizle</button></div>
       </section>
 
       <section class="how-section" id="nasil-calisir">
-        <div><p class="eyebrow">TOPLULUK İLKELERİ</p><h2>🙂 İşaretler ne anlama geliyor?</h2><p class="section-subtitle">Farklı rozetler farklı şeyler söyler. Hiçbiri bir kişinin her konuda haklı olduğunu göstermez.</p></div>
+        <div><p class="eyebrow">TOPLULUK İLKELERİ</p><h2>Katkı durumları</h2></div>
         <div class="badge-explainer">
-          <div class="badge-line"><span class="badge badge-reviewed"><span aria-hidden="true">✓</span> İncelendi</span><p>İçerik bir editör tarafından kontrol edilmiştir. Her bilginin her sürümde değişmeden kalacağı anlamına gelmez.</p></div>
-          <div class="badge-line"><span class="badge badge-pending">İnceleme bekliyor</span><p>Katkı gönderilmiş ancak henüz editör incelemesinden geçmemiştir.</p></div>
-          <div class="badge-line"><span class="badge badge-experienced">◆ Deneyimli katkıcı</span><p>Düzenli ve kurallara uygun katkı geçmişini belirtir. Rehberin onaylandığı anlamına gelmez.</p></div>
+          <div class="badge-line"><span class="badge badge-reviewed">İncelendi</span><p>Editör kontrolünden geçti.</p></div>
+          <div class="badge-line"><span class="badge badge-pending">İnceleme bekliyor</span><p>Henüz editör kontrolünden geçmedi.</p></div>
+          <div class="badge-line"><span class="badge badge-experienced">Deneyimli katkıcı</span><p>Katkı geçmişini gösterir, onay anlamına gelmez.</p></div>
         </div>
       </section>
     </main>
 
-    <footer class="footer"><a class="footer-brand" href="#top">🙂 oyun alanı</a><p>Bağımsız oyuncu topluluğu için ilk arayüz denemesi.</p><a href="./docs/ARCHITECTURE.md">Teknik yapı</a></footer>
+    <footer class="footer"><a class="footer-brand" href="#top">oyun alanı</a><a href="./docs/ARCHITECTURE.md">Teknik yapı</a></footer>
   </div>
 
   <dialog class="modal" id="submit-modal" aria-labelledby="submit-title">
     <form id="submit-form" class="modal-content">
-      <div class="modal-heading"><div><p class="eyebrow">TOPLULUĞA KATKI</p><h2 id="submit-title">Rehber taslağı oluştur</h2></div><button class="icon-button" type="button" data-close="submit-modal" aria-label="Pencereyi kapat">×</button></div>
-      <p class="modal-intro">Bu prototipte taslağın yalnızca mevcut oturumda görünür. Henüz hiçbir yere yayımlanmaz.</p>
+      <div class="modal-heading"><div><p class="eyebrow">TOPLULUĞA KATKI</p><h2 id="submit-title">Rehber taslağı oluştur</h2></div><button class="icon-button" type="button" data-close="submit-modal" aria-label="Pencereyi kapat">Kapat</button></div>
+      <p class="modal-intro">Taslak yalnızca bu oturumda görünür ve yayımlanmaz.</p>
       <label class="field-label" for="guide-title">Rehber başlığı</label><input class="text-field" id="guide-title" name="title" maxlength="100" required placeholder="Örn. Başlangıçta kaynakları nasıl kullanmalı?">
       <div class="field-grid"><div><label class="field-label" for="guide-game">Oyun</label><select class="text-field" id="guide-game" name="game" required><option value="">Oyun seç</option><option>DATA WING</option><option>Bloody Bastards</option><option>Antimatter Dimensions</option><option>Diğer</option></select></div><div><label class="field-label" for="guide-type">İçerik türü</label><select class="text-field" id="guide-type" name="type"><option value="guide">Rehber</option><option value="observation">Oyun içi gözlem</option><option value="question">Soru ve yanıt</option></select></div></div>
       <label class="field-label" for="guide-summary">İçerik</label><textarea class="text-field text-area" id="guide-summary" name="body" maxlength="2500" rows="6" required placeholder="Ne öğrendiğini, hangi koşullarda geçerli olduğunu ve varsa kaynaklarını anlat."></textarea>
       <label class="field-label" for="guide-source">Kaynak bağlantısı <span class="optional-label">İsteğe bağlı</span></label><input class="text-field" id="guide-source" name="source" type="url" placeholder="https://…">
       <label class="field-label" for="guide-source-kind">Kaynak türü <span class="optional-label">Bağlantı eklediğinde seç</span></label><select class="text-field" id="guide-source-kind" name="sourceKind"><option value="">Tür belirtilmedi</option><option value="official">Resmî kaynak</option><option value="secondary">İkincil kaynak</option><option value="other">Diğer bağlantı</option></select>
-      <p class="form-note"><span aria-hidden="true">ⓘ</span> Gerçek sistemde bu katkı inceleme bekliyor olarak işaretlenecek. Hakaret kontrolü, bildirim ve kalıcı kayıt henüz uygulanmadı.</p>
-      <div class="modal-actions"><button class="button button-quiet" type="button" data-close="submit-modal">Vazgeç</button><button class="button button-primary" type="submit">Taslağı göster <span aria-hidden="true">↗</span></button></div>
+      <p class="form-note">Gerçek gönderim ve kalıcı kayıt henüz yok.</p>
+      <div class="modal-actions"><button class="button button-quiet" type="button" data-close="submit-modal">Vazgeç</button><button class="button button-primary" type="submit">Taslağı göster</button></div>
       <p class="form-feedback" id="submit-feedback" aria-live="polite"></p>
     </form>
   </dialog>
 
   <dialog class="modal detail-modal" id="detail-modal" aria-labelledby="detail-title">
-    <div class="modal-content"><div class="modal-heading"><div><p class="eyebrow" id="detail-game">OYUN REHBERİ</p><h2 id="detail-title">Rehber ayrıntısı</h2></div><button class="icon-button" type="button" data-close="detail-modal" aria-label="Pencereyi kapat">×</button></div><div id="detail-badges" class="detail-badges"></div><p class="detail-body" id="detail-body"></p><div id="detail-source-wrap" class="source-wrap" hidden><span class="field-label" id="detail-source-label">Kaynak bağlantısı</span><a id="detail-source" href="#" target="_blank" rel="noreferrer noopener">Kaynağı aç ↗</a></div><div class="comments-heading"><h3>Yorumlar</h3><span id="comment-count"></span></div><div id="detail-comments" class="comments-list"></div><form id="comment-form" class="comment-form"><label class="sr-only" for="comment-input">Yorumun</label><textarea class="text-field text-area" id="comment-input" rows="3" maxlength="600" placeholder="Bu rehber hakkında düşünceni yaz…" required></textarea><button class="button button-secondary" type="submit">Yorum taslağı ekle</button><p class="small-note">Yorumlar yalnızca bu oturumda tutulur.</p></form></div>
+    <div class="modal-content"><div class="modal-heading"><div><p class="eyebrow" id="detail-game">OYUN REHBERİ</p><h2 id="detail-title">Rehber ayrıntısı</h2></div><button class="icon-button" type="button" data-close="detail-modal" aria-label="Pencereyi kapat">×</button></div><div id="detail-badges" class="detail-badges"></div><p class="detail-body" id="detail-body"></p><div id="detail-source-wrap" class="source-wrap" hidden><span class="field-label" id="detail-source-label">Kaynak bağlantısı</span><a id="detail-source" href="#" target="_blank" rel="noreferrer noopener">Kaynağı aç</a></div><div class="comments-heading"><h3>Yorumlar</h3><span id="comment-count"></span></div><div id="detail-comments" class="comments-list"></div><form id="comment-form" class="comment-form"><label class="sr-only" for="comment-input">Yorumun</label><textarea class="text-field text-area" id="comment-input" rows="3" maxlength="600" placeholder="Bu rehber hakkında düşünceni yaz…" required></textarea><button class="button button-secondary" type="submit">Yorum taslağı ekle</button><p class="small-note">Yorumlar yalnızca bu oturumda tutulur.</p></form></div>
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
