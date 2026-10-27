@@ -63,5 +63,20 @@ export const sampleGuides = [
     createdAt: "2026-10-20",
     votes: 17,
     comments: []
+  },
+  {
+    id: "dw-official-resource",
+    game: "DATA WING",
+    title: "DATA WING için geliştiricinin resmî sayfası",
+    type: "Kaynak yönlendirmesi",
+    status: "reviewed",
+    summary: "Oyuna ilişkin geliştirici kaynaklı bilgiler için başlangıç noktası. Bu bağlantı tek başına belirli bir oynanış gözlemini doğrulamaz.",
+    body: "Bu kayıt, DATA WING için geliştiricinin resmî sayfasına yönlendirir. Bir rehberdeki belirli iddia için bu sayfanın gerçekten o iddiayı destekleyip desteklemediğini ayrıca kontrol et. Kaynak bağlantısı bulunması, iddianın otomatik olarak doğrulandığı anlamına gelmez.",
+    source: "https://www.danvogt.info/datawing.html",
+    author: "Arşivci",
+    experienced: false,
+    createdAt: "2026-10-27",
+    votes: 0,
+    comments: []
   }
 ];
