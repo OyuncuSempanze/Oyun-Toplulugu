@@ -4,6 +4,8 @@ Oyunlar hakkında kullanıcı katkılarını, yorumları ve faydalı bulma oylar
 
 Bu depo, **Oyun-Rehberi'nin yerine geçmez**. Oyun-Rehberi kaynaklı ve düzenli arşiv olarak kalır. Bu uygulama ise topluluk katılımını denemek için ayrı geliştirilir. İleride doğrulanmış katkılar Oyun-Rehberi'ne aktarılabilir fakat başlangıçta iki proje birbirinden bağımsızdır.
 
+[Web Sitesini Görüntüle](https://oyuncusempanze.github.io/Oyun-Toplulugu/)
+
 ## Şu an neler çalışıyor?
 
 - Mobil uyumlu rehber listesi
