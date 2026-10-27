@@ -104,11 +104,13 @@ function render() {
     if (button.dataset.game !== "all") {
       const count = state.guides.filter((guide) => guide.game === button.dataset.game).length;
       button.dataset.count = String(count);
-    }
-  });
-  $$(".filter-chip[data-game]").forEach((button) => {
-    if (button.dataset.game !== "all") {
-      const count = Number(button.dataset.count) || 0;
+      let countLabel = button.querySelector("[data-game-count]");
+      if (!countLabel) {
+        countLabel = document.createElement("span");
+        countLabel.dataset.gameCount = "";
+        button.append(" ", countLabel);
+      }
+      countLabel.textContent = String(count);
       button.setAttribute("aria-label", `${button.dataset.game}, ${count} rehber`);
     }
   });
@@ -186,7 +188,11 @@ $("#submit-form").addEventListener("submit", async (event) => {
   state.guides = await mockStore.listGuides();
   state.game = "all";
   state.search = "";
+  state.sort = "recent";
+  state.sourceOnly = false;
   $("#search-input").value = "";
+  $("#sort-select").value = "recent";
+  $("#source-only").checked = false;
   $$(".filter-chip").forEach((chip) => chip.classList.toggle("active", chip.dataset.game === "all"));
   render();
   $("#submit-modal").close();
@@ -260,7 +266,7 @@ $("#clear-filters").addEventListener("click", () => {
   render();
 });
 
-for (const dialog of $$('dialog')) {
+for (const dialog of $$("dialog")) {
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
