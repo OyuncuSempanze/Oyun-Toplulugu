@@ -129,7 +129,7 @@ function renderComments(guide) {
   const comments = guide.comments || [];
   $("#comment-count").textContent = `${comments.length} yorum`;
   $("#detail-comments").innerHTML = comments.length ? comments.map((comment) => `
-    <article class="comment-item"><div class="comment-head"><strong>${escapeHTML(comment.author)}${comment.experienced ? ' <span class="experienced-inline" title="Katkı geçmişi işareti">◆ deneyimli</span>' : ""}</strong><span>${escapeHTML(comment.createdAt)}</span></div><p>${escapeHTML(comment.body)}</p></article>
+    <article class="comment-item"><div class="comment-head"><strong>${escapeHTML(comment.author)}${comment.experienced ? ' <span class="experienced-inline" title="Katkı geçmişi işareti">deneyimli</span>' : ""}</strong><span>${escapeHTML(comment.createdAt)}</span></div><p>${escapeHTML(comment.body)}</p></article>
   `).join("") : '<p class="small-note">Henüz yorum yok. İlk yorumu bu prototipte taslak olarak ekleyebilirsin.</p>';
 }
 
@@ -155,7 +155,7 @@ function openDetail(id) {
 }
 
 $("#open-submit-top").addEventListener("click", openSubmitModal);
-$("#open-submit-hero").addEventListener("click", openSubmitModal);
+$("#open-submit-hero")?.addEventListener("click", openSubmitModal);
 
 $$("[data-close]").forEach((button) => button.addEventListener("click", () => {
   const dialog = document.getElementById(button.dataset.close);
