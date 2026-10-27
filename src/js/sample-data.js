@@ -67,6 +67,7 @@ export const sampleGuides = [
   {
     id: "dw-official-resource",
     game: "DATA WING",
+    sourceKind: "official",
     title: "DATA WING için geliştiricinin resmî sayfası",
     type: "Kaynak yönlendirmesi",
     status: "reviewed",
