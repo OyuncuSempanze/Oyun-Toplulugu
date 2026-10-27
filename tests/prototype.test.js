@@ -6,8 +6,8 @@ test("örnek rehberler kopya olarak döner ve geçici işlemler tutarlı çalı�
   const initialGuides = await mockStore.listGuides();
   assert.ok(initialGuides.length >= 1, "En az bir örnek rehber olmalı");
 
-  assert.ok(initialGuides.some((guide) => guide.id === "dw-official-resource" && guide.source),
-    "Kaynak filtresini denemek için resmî bağlantılı bir örnek bulunmalı");
+  assert.ok(initialGuides.some((guide) => guide.id === "dw-official-resource" && guide.source && guide.sourceKind === "official"),
+    "Kaynak filtresini denemek için türü belirtilmiş resmî bağlantılı bir örnek bulunmalı");
 
   const target = initialGuides.find((guide) => guide.id === "dw-speed-boost");
   assert.ok(target, "DATA WING örnek rehberi bulunmalı");
@@ -36,7 +36,8 @@ test("örnek rehberler kopya olarak döner ve geçici işlemler tutarlı çalı�
     title: "Test rehberi",
     typeLabel: "Rehber",
     body: "Bu kayıt örnek test için oluşturuldu.",
-    source: ""
+    source: "",
+    sourceKind: ""
   });
   assert.equal(submission.status, "pending");
   assert.equal(submission.title, "Test rehberi");
