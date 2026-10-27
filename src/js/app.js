@@ -17,6 +17,7 @@ const empty = $("#empty-state");
 const resultCount = $("#result-count");
 const toast = $("#toast");
 const typeLabels = { guide: "Rehber", observation: "Oyun içi gözlem", question: "Soru ve yanıt" };
+const sourceKindLabels = { official: "Resmî kaynak", secondary: "İkincil kaynak", other: "Diğer bağlantı" };
 let toastTimeout;
 
 const escapeHTML = (value = "") => String(value).replace(/[&<>"']/g, (char) => ({
@@ -69,7 +70,9 @@ function renderGuide(guide) {
   const voteDirection = state.votes.get(guide.id) || 0;
   const votes = effectiveVotes(guide);
   const commentCount = guide.comments?.length || 0;
-  const sourceHint = guide.source ? '<span class="source-hint">↗ Kaynak bağlantısı var</span>' : '<span class="source-hint">Kaynak bağlantısı eklenmemiş</span>';
+  const sourceHint = guide.source
+    ? `<span class="source-hint">↗ ${escapeHTML(sourceKindLabels[guide.sourceKind] || "Kaynak türü belirtilmedi")}</span>`
+    : '<span class="source-hint">Kaynak bağlantısı eklenmemiş</span>';
   const experienced = guide.experienced ? '<span class="experienced-inline" title="Katkı geçmişini belirtir, doğruluk rozeti değildir">◆ deneyimli</span>' : "";
   return `<article class="guide-card" data-guide-id="${escapeHTML(guide.id)}">
     <div class="guide-card-main">
@@ -139,6 +142,7 @@ function openDetail(id) {
   const sourceWrap = $("#detail-source-wrap");
   if (guide.source) {
     $("#detail-source").href = guide.source;
+    $("#detail-source-label").textContent = sourceKindLabels[guide.sourceKind] || "Kaynak bağlantısı";
     sourceWrap.hidden = false;
   } else {
     sourceWrap.hidden = true;
@@ -163,6 +167,7 @@ $("#submit-form").addEventListener("submit", async (event) => {
   const game = String(form.get("game") || "").trim();
   const body = String(form.get("body") || "").trim();
   const source = String(form.get("source") || "").trim();
+  const sourceKind = source ? String(form.get("sourceKind") || "") : "";
   const type = String(form.get("type") || "guide");
   if (!title || !game || !body) return;
   if (source) {
@@ -177,7 +182,7 @@ $("#submit-form").addEventListener("submit", async (event) => {
       return;
     }
   }
-  const guide = await mockStore.submitGuide({ title, game, body, source, type, typeLabel: typeLabels[type] || "Rehber" });
+  const guide = await mockStore.submitGuide({ title, game, body, source, sourceKind, type, typeLabel: typeLabels[type] || "Rehber" });
   state.guides = await mockStore.listGuides();
   state.game = "all";
   state.search = "";
