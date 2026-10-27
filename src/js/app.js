@@ -39,10 +39,10 @@ function formatDate(dateString) {
 
 function badgeMarkup(guide) {
   const status = guide.status === "reviewed"
-    ? '<span class="badge badge-reviewed"><span aria-hidden="true">✓</span> İncelendi</span>'
+    ? '<span class="badge badge-reviewed">İncelendi</span>'
     : '<span class="badge badge-pending">İnceleme bekliyor</span>';
   const experienced = guide.experienced
-    ? '<span class="badge badge-experienced" title="Bu işaret katkı geçmişini belirtir, içeriğin onaylandığını göstermez.">◆ Deneyimli katkıcı</span>'
+    ? '<span class="badge badge-experienced" title="Bu işaret katkı geçmişini belirtir, içeriğin onaylandığını göstermez.">Deneyimli katkıcı</span>'
     : "";
   return `${status}<span class="badge badge-type">${escapeHTML(guide.type)}</span>${experienced}`;
 }
@@ -71,21 +71,21 @@ function renderGuide(guide) {
   const votes = effectiveVotes(guide);
   const commentCount = guide.comments?.length || 0;
   const sourceHint = guide.source
-    ? `<span class="source-hint">↗ ${escapeHTML(sourceKindLabels[guide.sourceKind] || "Kaynak türü belirtilmedi")}</span>`
+    ? `<span class="source-hint">${escapeHTML(sourceKindLabels[guide.sourceKind] || "Kaynak türü belirtilmedi")}</span>`
     : '<span class="source-hint">Kaynak bağlantısı eklenmemiş</span>';
-  const experienced = guide.experienced ? '<span class="experienced-inline" title="Katkı geçmişini belirtir, doğruluk rozeti değildir">◆ deneyimli</span>' : "";
+  const experienced = guide.experienced ? '<span class="experienced-inline" title="Katkı geçmişini belirtir, doğruluk rozeti değildir">deneyimli</span>' : "";
   return `<article class="guide-card" data-guide-id="${escapeHTML(guide.id)}">
     <div class="guide-card-main">
-      <div class="guide-meta"><span class="game-label">${escapeHTML(guide.game)}</span><span class="meta-dot"></span><span class="meta-detail">${escapeHTML(formatDate(guide.createdAt))}</span></div>
+      <div class="guide-meta"><span class="game-label">${escapeHTML(guide.game)}</span><span class="meta-detail">${escapeHTML(formatDate(guide.createdAt))}</span></div>
       <div class="guide-meta">${badgeMarkup(guide)}</div>
       <h3>${escapeHTML(guide.title)}</h3>
       <p class="summary">${escapeHTML(guide.summary)}</p>
-      <div class="guide-footer"><span class="author">${escapeHTML(guide.author)}${experienced}</span>${sourceHint}<button class="detail-link" type="button" data-detail="${escapeHTML(guide.id)}">Ayrıntılar ve yorumlar (${commentCount}) ↗</button></div>
+      <div class="guide-footer"><span class="author">${escapeHTML(guide.author)}${experienced}</span>${sourceHint}<button class="detail-link" type="button" data-detail="${escapeHTML(guide.id)}">Ayrıntılar ve yorumlar (${commentCount})</button></div>
     </div>
     <div class="vote-panel" aria-label="Rehber oylaması">
-      <button class="vote-button ${voteDirection === 1 ? "selected" : ""}" type="button" data-vote="1" data-id="${escapeHTML(guide.id)}" aria-label="Olumlu oy ver" aria-pressed="${voteDirection === 1}">↑</button>
+      <button class="vote-button ${voteDirection === 1 ? "selected" : ""}" type="button" data-vote="1" data-id="${escapeHTML(guide.id)}" aria-label="Olumlu oy ver" aria-pressed="${voteDirection === 1}">Yararlı</button>
       <span class="vote-count" aria-label="Oy sayısı">${votes}</span>
-      <button class="vote-button ${voteDirection === -1 ? "selected" : ""}" type="button" data-vote="-1" data-id="${escapeHTML(guide.id)}" aria-label="Olumsuz oy ver" aria-pressed="${voteDirection === -1}">↓</button>
+      <button class="vote-button ${voteDirection === -1 ? "selected" : ""}" type="button" data-vote="-1" data-id="${escapeHTML(guide.id)}" aria-label="Olumsuz oy ver" aria-pressed="${voteDirection === -1}">Yaramadı</button>
       <span class="vote-caption">oy</span>
     </div>
   </article>`;
